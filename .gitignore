@@ -11,3 +11,4 @@ wheels/
 conf/
 env/
 collections/
+migrations/

@@ -1,12 +1,19 @@
-from .models import User, Transportation
+from .models import Transportation
 from rest_framework import serializers
 
-class UserHyperLinkSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'password']
+
 
 class TransportationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transportation
-        fields = ['sender', 'receiver', 'size']
+        fields = ['sender', 'receiver', 'human_readable_size']
+
+class RecordTransferSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transportation
+        fields = ['receiver', 'file']
+
+class RecordTransferResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transportation
+        fields = '__all__'
